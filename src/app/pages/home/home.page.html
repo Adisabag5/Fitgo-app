@@ -1,0 +1,134 @@
+<ion-header>
+  <ion-toolbar >
+    <div  class = "header">
+      <ion-buttons>
+        <ion-menu-button slot="start"></ion-menu-button>
+      </ion-buttons>
+      <h2>Home</h2>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-slides class = "wrapper">
+
+    <ion-slide>
+        <img id="img" src="assets/images/background1.jpg" >
+        <ion-card>
+          <ion-card-header color = "dark"> 
+            <ion-card-subtitle>Welcom</ion-card-subtitle>
+            <ion-card-title>Hello {{your_name}}</ion-card-title>
+            <ion-button (click) = "showData()" color = 'light' expand = "block"> Show my data </ion-button>
+          </ion-card-header>
+         
+          <ion-card-content *ngIf = "isShowData">
+            <ion-item class="ion-no-padding">
+              <ion-label color="primary">
+                  <h3>Your last workout:</h3>
+              </ion-label>
+              <ion-label>
+                <p>{{lastWorkout}}</p>
+              </ion-label>
+            </ion-item >
+            <ion-item class="ion-no-padding">
+              <ion-label color="primary">
+                <h3>Was at:</h3>
+              </ion-label>
+              <ion-label>
+                <p>{{lastWorkoutDate}}</p>
+              </ion-label>
+            </ion-item >
+            <ion-item class="ion-no-padding">
+              <ion-label color="primary">
+                <h3>Your next workout</h3>
+              </ion-label>
+              <ion-label>
+                <p>{{nextWorkout}}</p>
+              </ion-label>
+            </ion-item >
+            <ion-item class="ion-no-padding">
+              <ion-label color="primary">
+                <h3>Your training program:</h3>
+              </ion-label>
+              <ion-label>
+                <p>{{trainigProg}}</p>
+              </ion-label>
+            </ion-item >
+          </ion-card-content>
+        </ion-card>
+          
+
+    </ion-slide>
+
+    <ion-slide>
+      <img id="img" src="assets/images/background7.jpg" >
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Update</ion-card-subtitle>
+          <ion-card-title>Update your weight</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-item>
+            <ion-input type = "text" placeholder = "New Weight" [(ngModel)] = "newWeight"></ion-input>
+          </ion-item>
+          <ion-button expand="block" color = "success" (click)="updateWeight()">Update Weight</ion-button>
+        </ion-card-content>
+      </ion-card>
+      
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Update</ion-card-subtitle>
+          <ion-card-title>Looking for a change?</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-item>
+            <ion-input type = "text" placeholder = "New Weight" [(ngModel)] = "newWeight"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label style = "color:#999">Training level</ion-label>
+            <ion-select interface = "popover" [(ngModel)] = "newLevel">
+              <ion-select-option value="Beginner">Beginner</ion-select-option>
+              <ion-select-option value="Intermediate">Intermediate</ion-select-option>
+              <ion-select-option value="Profesional">Profesional</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-button expand="block" (click) = "newProg()">Get new program</ion-button>
+        </ion-card-content>
+      </ion-card>
+      
+   </ion-slide>
+
+    <ion-slide class = "partners">
+      <div id = "mapHeader">
+        <ion-toolbar color="warning">
+          <ion-button (click)="loadMap()" shape="round" color="dark">
+            <ion-icon slot="start" name="locate"></ion-icon>
+            Where I Am
+          </ion-button>
+          <ion-title slot="end">Google Map</ion-title>
+        </ion-toolbar>
+      </div>
+      <div class="map-wrapper">
+        <div id="map_center">
+          <img src = "assets/icon/user_marker.jpg">
+        </div>
+        <div #map id="map"></div>
+      </div>
+
+      <ion-button expand="block" (click) = "findPartners()">Find Partners</ion-button>
+      <ion-button expand="block" (click) = "showPartners()">Show Partners</ion-button>
+      <ion-list *ngIf = 'isPartners'>
+        <ion-item *ngFor = "let partner of partnersList;">
+          <ion-label >{{partner[2]}} <ion-button (click)="loadPartnerMap(partner[0], partner[1])">Check location</ion-button></ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+
+
+  </ion-slides>
+  
+
+</ion-content>

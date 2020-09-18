@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar>
+    <div  class = "header">
+      <ion-buttons>
+        <ion-menu-button slot="start"></ion-menu-button>
+      </ion-buttons>
+      <h2>Your next workout:</h2>
+    </div>
+  </ion-toolbar>
+    
+    
+</ion-header>
+
+<ion-content padding >
+  
+  <ion-slides >
+    <ion-slide  *ngFor = "let key of workoutKeys; let i = index;">
+      <div class="slide">
+        <img class = "img" src="assets/images/background{{i+1}}.jpg"/>
+        <ion-card>
+          <ion-card-header color = "dark" no-padding>
+            <ion-card-title>
+              {{key}}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Hit START when you are ready...</p>
+
+            <ion-button 
+                        *ngIf = 'i == 0'
+                        fill="clear" 
+                        (click)= "workoutProgress(key, i)" 
+                        [disabled] = "workoutsDone[i]" 
+                        [color] = "workoutsDone[i] ? 'dark' : 'success'"
+                        routerLink = "/next"
+                        >
+                        START 
+                      <ion-icon 
+                          slot="end" 
+                          name="arrow-forward" >
+                      </ion-icon>
+              </ion-button>
+
+              <ion-button 
+                        *ngIf = 'i == 1'
+                        fill="clear" 
+                        (click)= "workoutProgress(key, i)" 
+                        [disabled] = "workoutsDone[i]" 
+                        [color] = "workoutsDone[i] ? 'dark' : 'success'"
+                        routerLink = "/prev"
+                        >
+                        START 
+                      <ion-icon 
+                          slot="end" 
+                          name="arrow-forward" >
+                      </ion-icon>
+              </ion-button>
+
+              <ion-button 
+                        *ngIf = 'i == 2'
+                        fill="clear" 
+                        (click)= "workoutProgress(key, i)" 
+                        [disabled] = "workoutsDone[i]" 
+                        [color] = "workoutsDone[i] ? 'dark' : 'success'"
+                        routerLink = "/exercise"
+                        >
+                        START 
+                      <ion-icon 
+                          slot="end" 
+                          name="arrow-forward" >
+                      </ion-icon>
+              </ion-button>
+
+              <ion-button 
+                        *ngIf = 'i == 3'
+                        fill="clear" 
+                        (click)= "workoutProgress(key, i)" 
+                        [disabled] = "workoutsDone[i]" 
+                        [color] = "workoutsDone[i] ? 'dark' : 'success'"
+                        routerLink = "/next"
+                        >
+                        START 
+                      <ion-icon 
+                          slot="end" 
+                          name="arrow-forward" >
+                      </ion-icon>
+              </ion-button>
+
+            <ion-grid >
+              <ion-row *ngFor = "let val of workoutVals[i]; let j = index;">
+                <ion-col size = 6>
+                  <ion-item>
+                    <ion-label>
+                      <b>{{j+1}}.{{val[0]}}</b>
+                    </ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col size = 6>
+                  <ion-item>
+                    <ion-label>
+                      {{val[1]}}
+                    </ion-label>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+</ion-content>

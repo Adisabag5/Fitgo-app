@@ -1,0 +1,98 @@
+.my-custom-menu {
+  --width: 500px;
+}
+
+.ion-no-padding{
+  padding: 0;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+
+#img{
+  width: 100%;
+  height: 50%;
+}
+
+.partners{
+
+  img{
+    margin-bottom: 75px;
+  }
+}
+
+ion-content{
+  --background-color: black;
+ 
+}
+  
+ion-slide{
+height: 100%;
+display: inline-block;
+
+p{
+  border-bottom: solid 1px gray;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+img{
+  
+  border-radius: 8px;
+  
+
+}
+}
+
+.header{
+display: flex;
+background-color: #601477;
+box-shadow: 0px 1px 10px rgba(98,140,255,0.5);
+align-items: center;
+
+ion-menu-button{
+    color: #fff;
+}
+
+h2{
+    margin-left: 10px;
+    color: #fff;
+}
+
+
+}
+
+/* Google map*/ 
+
+#map_canvas {
+  width: 90%;
+  height: 80%;
+  border: 1px solid red;
+}
+
+
+#address {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#map {
+  width: 100%;
+  height: 70vh;
+}
+
+.map-wrapper {
+  position: relative;
+
+  #map_center {
+    position: absolute;
+    z-index: 99;
+    height: 40px;
+    width: 40px;
+    top: 50%;
+    left: 50%;
+    margin-left: -21px;
+    margin-top: -41px;
+  }
+}

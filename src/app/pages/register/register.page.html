@@ -1,0 +1,63 @@
+<ion-header no boarder>
+      <ion-toolbar>
+        <div  class = "header">
+          <ion-buttons slot = "start">
+            <ion-back-button></ion-back-button>
+          </ion-buttons>
+          <h2>Register</h2>
+        </div>
+      </ion-toolbar>    
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div class = "">
+
+      <ion-item>
+        <ion-input type = "text" placeholder = "Name" [(ngModel)] = "your_name"> </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label style = "color:#999">Gender</ion-label>
+        <ion-select interface = "popover" [(ngModel)] = "gender">
+          <ion-select-option value="Female">Female</ion-select-option>
+          <ion-select-option value="Male">Male</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type = "text" placeholder = "Your Age" [(ngModel)] = "age"> </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type = "text" placeholder = "Your Height" [(ngModel)] = "height"> </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type = "text" placeholder = "Your Weight" [(ngModel)] = "weight"> </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label style = "color:#999">Goal</ion-label>
+        <ion-select interface = "popover" [(ngModel)] = "target">
+          <ion-select-option value="Fit">Fit</ion-select-option>
+          <ion-select-option value="Cardio">Cardio</ion-select-option>
+          <ion-select-option value="Cross-fit">Cross-fit</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label style = "color:#999">Training level</ion-label>
+        <ion-select interface = "popover" [(ngModel)] = "level">
+          <ion-select-option value="Beginner">Beginner</ion-select-option>
+          <ion-select-option value="Intermediate">Intermediate</ion-select-option>
+          <ion-select-option value="Profesional">Profesional</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button class = "registerBtn" expand = "full" class = "no padding" (click) = "get_training_program()" [disabled] = "disabledButon" color = "primary">Register</ion-button>
+
+   </div>
+  </ion-list>
+
+</ion-content>

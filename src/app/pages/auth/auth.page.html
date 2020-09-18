@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-title text-center> User  {{isLogin? 'Login' : 'Signup'}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form #f="ngForm" (ngSubmit) = "onSubmit(f)">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-list>
+          <div class = "">
+      
+            <ion-item>
+              <ion-input 
+                type = "email" 
+                placeholder = "Email" 
+                ngModel name = "email" 
+                required email
+                #emailCtrl = ngModel>  
+            </ion-input>
+            </ion-item>
+            <ion-item  *ngIf = "!emailCtrl.valid && emailCtrl.touched" lines = "none">
+              <p>Shuld be a valid e-mail</p>
+            </ion-item>
+      
+            <ion-item>
+              <ion-input 
+                type = "password" 
+                placeholder = "Password" 
+                ngModel name = "password" 
+                required minlength="6"
+                #passCtrl = ngModel> 
+              </ion-input>
+            </ion-item>
+            <ion-item  *ngIf = "!passCtrl.valid && passCtrl.touched" lines = "none">
+              <p>Shuld be a valid password</p>
+            </ion-item>
+          </div>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-button 
+          color = "primary" 
+          fill = "clear" 
+          expand = "full"
+          (click) = "onSwitchAuthMode()"
+          >
+          switch to {{isLogin? 'Signup' : 'Login'}}
+        </ion-button>
+        <ion-button 
+          type = "submit" 
+          expand = "block"  
+          color = "primary"  
+          [disabled] = "!f.valid">
+          {{isLogin? 'Login' : 'Signup'}}
+        </ion-button>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+  
+
+    
+  
+</ion-content>

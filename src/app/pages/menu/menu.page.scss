@@ -1,0 +1,21 @@
+ion-slide{
+
+    height: 100%;
+    display: inline-block;
+}
+
+.header{
+    margin: 0;
+    display: flex;
+    background-color: #601477;
+    align-items: center;
+
+    ion-menu-button{
+        color: #fff;
+    }
+
+    h2{
+        margin-left: 10px;
+        color: #fff;
+    }
+}
